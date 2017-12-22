@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>version</key>
+	<integer>0</integer>
+	<key>addonApps</key>
+	<array>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.text</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.camera</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.album</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>YIXIA.YXLiveVideoApp.XKTV</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.show</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.article</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.poi</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.review</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.topic</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.envelope</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.friendscircle</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.ting</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.sina.weibo.product</string>
+		</dict>
+		<dict>
+			<key>pack</key>
+			<string>com.yixia.videoeditor</string>
+		</dict>
+	</array>
+</dict>
+</plist>
