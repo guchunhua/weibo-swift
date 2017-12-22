@@ -14,22 +14,49 @@ class LEMainViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupChildControllers()
     }
     
+    fileprivate lazy var addButton : UIButton = {
+        
+        let button = UIButton.init(type: UIButtonType.custom)
+        
+        return button
+    }()
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension LEMainViewController {
+    private func setupChildControllers(){
+       let array = [
+            ["clsName":"LEHomeViewController","title":"首页","imageName":""],
+            ["clsName":"LEMessageViewController","title":"消息","imageName":""],
+            ["clsName":"UIViewController"],
+            ["clsName":"LEDiscoverViewController","title":"发现","imageName":""],
+            ["clsName":"LEPorfileViewController","title":"我","imageName":""],
+        ]
+        var arrayM = [UIViewController]()
+        for dict in array{
+            arrayM.append((controller(dict: dict)))
+        }
+        
+        viewControllers = arrayM
     }
-    */
-
+    
+    private func controller(dict: [String : String]) -> UIViewController {
+        
+        guard  let clsName =  dict["clsName"],
+            let title = dict["title"],
+            let imageName = dict["imageName"]
+        else {
+            return UIViewController()
+        }
+        
+        // 命名空间和反射
+        let cls = NSClassFromString(Bundle.main.nameSpace + "." + clsName) as? UIViewController.Type
+        
+        let vc = cls?.init()
+        vc?.title = title
+        vc?.tabBarItem.setTitleTextAttributes([ NSAttributedStringKey.foregroundColor : UIColor.orange], for: .highlighted)
+        return vc!
+    }
 }
