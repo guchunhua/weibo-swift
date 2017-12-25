@@ -15,14 +15,21 @@ class LEMainViewController: UITabBarController {
 
         // Do any additional setup after loading the view.
         setupChildControllers()
+        setupComposeButton()
     }
     
     fileprivate lazy var addButton : UIButton = {
-        
         let button = UIButton.init(type: UIButtonType.custom)
-        
+        button.setBackgroundImage(UIImage.init(named: "page_follow_add_background"), for: .normal)
+        button.setImage(UIImage.init(named: "shield_center_pop_icon_add"), for: .normal)
         return button
     }()
+    
+    // FIXME: 待完成
+    // @objc 允许这个函数在运行的时候通过OC的消息机制被调用
+    @objc private func addStatus() {
+        print("撰写微博")
+    }
 }
 
 extension LEMainViewController {
@@ -36,7 +43,7 @@ extension LEMainViewController {
         ]
         var arrayM = [UIViewController]()
         for dict in array{
-            arrayM.append((controller(dict: dict)))
+            arrayM.append(LENavgationController.init(rootViewController:(controller(dict: dict))))
         }
         
         viewControllers = arrayM
@@ -58,5 +65,16 @@ extension LEMainViewController {
         vc?.title = title
         vc?.tabBarItem.setTitleTextAttributes([ NSAttributedStringKey.foregroundColor : UIColor.orange], for: .highlighted)
         return vc!
+    }
+    
+    private func setupComposeButton() {
+        
+        let count = CGFloat(childViewControllers.count)
+        let w = tabBar.bounds.width / count - 1
+        addButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
+        tabBar.addSubview(addButton)
+        
+        // 按钮监听方法
+        addButton.addTarget(self, action: #selector(addStatus), for: .touchUpInside)
     }
 }

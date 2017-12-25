@@ -9,27 +9,33 @@
 import UIKit
 
 class LEBaseViewController: UIViewController {
+    
+    lazy var navigationBar = LECustomNavigationBar(frame : CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64))
 
+    lazy var navItem = UINavigationItem.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // 重写title 的 didSet方法
+    override var title: String?{
+        didSet{
+            navItem.title = title
+        }
+    }
+}
+
+extension LEBaseViewController {
+   @objc func setupUI() {
+        view.backgroundColor = UIColor.gray
+    
+        view.addSubview(navigationBar)
+        navigationBar.items = [navItem]
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
