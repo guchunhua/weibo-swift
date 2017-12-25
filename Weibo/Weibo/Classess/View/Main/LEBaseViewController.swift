@@ -32,7 +32,8 @@ class LEBaseViewController: UIViewController {
 extension LEBaseViewController {
    @objc func setupUI() {
         view.backgroundColor = UIColor.gray
-    
+        navigationBar.tintColor = UIColor.darkGray
+    navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
         view.addSubview(navigationBar)
         navigationBar.items = [navItem]
     }

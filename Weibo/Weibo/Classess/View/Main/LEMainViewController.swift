@@ -51,9 +51,9 @@ extension LEMainViewController {
     
     private func controller(dict: [String : String]) -> UIViewController {
         
-        guard  let clsName =  dict["clsName"],
+        guard let clsName =  dict["clsName"],
             let title = dict["title"],
-            let imageName = dict["imageName"]
+            let _ = dict["imageName"]
         else {
             return UIViewController()
         }

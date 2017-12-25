@@ -13,9 +13,8 @@ extension Bundle {
 //      return  Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
 //    }
     
-    // 计算型属性,类似于函数,没有参数有返回值
+    // 计算型属性,不占用空间,类似于函数,没有参数有返回值
     var nameSpace: String {
         return  Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
     }
-    
 }

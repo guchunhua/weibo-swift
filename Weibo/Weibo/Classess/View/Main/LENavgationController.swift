@@ -21,8 +21,20 @@ class LENavgationController: UINavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if childViewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
+            
+            if let vc = viewController as? LEBaseViewController {
+                var title = "返回"
+                if childViewControllers.count == 1 {
+                    title = childViewControllers.first?.title ?? "返回"
+                }
+                vc.navItem.leftBarButtonItem = UIBarButtonItem.init(title: title, style: .plain, target: self, action: #selector(popToParent))
+            }
         }
+ 
         super.pushViewController(viewController, animated: true)
     }
-
+    
+    @objc private func popToParent() {
+        popViewController(animated: true)
+    }
 }
