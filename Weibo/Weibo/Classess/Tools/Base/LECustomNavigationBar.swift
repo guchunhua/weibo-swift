@@ -14,7 +14,7 @@ class LECustomNavigationBar: UINavigationBar {
     // ios11 中导航栏整体上移了
     override func layoutSubviews() {
         super.layoutSubviews()
-        let systemVersion = Float(UIDevice.current.systemVersion) ?? 0.0
+        let systemVersion = Double(UIDevice.current.systemVersion) ?? 0.0
         for view in self.subviews {
             if systemVersion >= 11.0 {
                 if view.isKind(of: NSClassFromString("_UIBarBackground")!) {

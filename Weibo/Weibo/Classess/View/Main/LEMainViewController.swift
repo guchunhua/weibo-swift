@@ -18,6 +18,13 @@ class LEMainViewController: UITabBarController {
         setupComposeButton()
     }
     
+    /* 只支持竖屏 portrait
+       横屏      landscape
+     */
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     fileprivate lazy var addButton : UIButton = {
         let button = UIButton.init(type: UIButtonType.custom)
         button.setBackgroundImage(UIImage.init(named: "page_follow_add_background"), for: .normal)
@@ -29,6 +36,11 @@ class LEMainViewController: UITabBarController {
     // @objc 允许这个函数在运行的时候通过OC的消息机制被调用
     @objc private func addStatus() {
         print("撰写微博")
+        // 测试方向旋转
+        let vc = UIViewController()
+        vc.view.backgroundColor = UIColor.blue
+        let nav = UINavigationController.init(rootViewController: vc)
+        present(nav, animated: true, completion: nil)
     }
 }
 
